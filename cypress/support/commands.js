@@ -25,6 +25,7 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 Cypress.Commands.add('amazon', () => {
     cy.visit('https://www.amazon.com.br')
-    cy.get('[href="/gp/browse.html?node=17877554011&ref_=nav_cs_sell"]').should('contains.text','Venda na Amazon')
-        
- })
+    cy.get('[href="/gp/browse.html?node=17877554011&ref_=nav_cs_sell"]')
+        .should('contains.text', 'Venda na Amazon')
+
+})
