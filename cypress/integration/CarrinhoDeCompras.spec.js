@@ -1,41 +1,48 @@
+const { hasUncaughtExceptionCaptureCallback } = require("process")
+
 describe('Adicionando produto no Carrinho no site da Amazon', function() {
     it('Acessando o site da Amazon', function() {
         cy.amazon()
-        //verificar se estou no site da amazon
+        
+        
     })
-    it('Buscando por um produto', function(){
+    it('Buscando por um produto e adicionando ao carrinho', function(){
         cy.get('#twotabsearchtextbox')
-            .click()
             .type('codigo limpo {enter}', {force:true})
-            cy.get('[data-asin="8576082675"] > .sg-col-inner > .s-widget-container > .s-card-container > .a-spacing-base > .s-product-image-container > .rush-component > .a-link-normal > .a-section').click(
-
-            )
-        //melhorar performace
-        //validar item 
+            cy.get('[data-asin] > .sg-col-inner > .s-widget-container > .s-card-container > .a-spacing-base > .s-product-image-container > .rush-component > .a-link-normal > .a-section')
+            .first()
+            .click()
+            .get('#add-to-cart-button')
+            .click()
+            .get('#sw-gtc > .a-button-inner > .a-button-text').click()
+        
     })
-    it('Verificando se posso adicionar ao carrinho', function() {
-        cy.get('#add-to-cart-button').should('have.value', 'Adicionar ao carrinho')
-        cy.get('#add-to-cart-button')
-    })
-    it.skip('Valide se o produto foi incluído no carrinho com sucesso', function() {
-        cy.get('.a-size-medium-plus').should('have.value', 'Adicionar ao carrinho')
-        cy.get('#sw-subtotal')//variavel valor do produto
+    
+    it('Valide se o produto foi incluído no carrinho com sucesso', function() {
+        cy.get('.a-color-base > .a-truncate > .a-truncate-cut').should('contains.text','Código limpo: Habilidades práticas do Agile Software')
+        cy.get('#sc-subtotal-amount-buybox > .a-size-medium').then((element)=>{
+            expect(element.text().replace('\n','').replace(' ','')).to.equal('R$71,88')
+        })
 
     })
    
 
   })
-  describe('Adicionando 3 produtos no Carrinho no site da Amazon', function() {
+  describe.skip('Adicionando 3 produtos no Carrinho no site da Amazon', function() {
     it('Acessando o site da Amazon', function() {
         cy.amazon()
-        //verificar se estou no site da amazon
-    })
-    it.skip('Buscando por 3 produtos', function() {
        
     })
-    it.skip('Adicionndo 3 produtos no carrinho', function() {
-       
+    it('Buscando e adicionando 3 produtos', function() {
+        cy.get('#twotabsearchtextbox')
+        .type('echo 4{enter}', {force:true})
+        cy.get('[data-asin] > .sg-col-inner > .s-widget-container > .s-card-container > .a-spacing-base > .s-product-image-container > .rush-component > .a-link-normal > .a-section')
+        .first()
+        .click()
+        .get('#add-to-cart-button')
+        .click()
     })
+    
     it.skip('Validando o valor total no carrinho', function() {
        
     })
