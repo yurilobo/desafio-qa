@@ -25,3 +25,20 @@ describe('Adicionando produto no Carrinho no site da Amazon', function() {
    
 
   })
+  describe('Adicionando 3 produtos no Carrinho no site da Amazon', function() {
+    it('Acessando o site da Amazon', function() {
+        cy.amazon()
+        //verificar se estou no site da amazon
+    })
+    it.skip('Buscando por 3 produtos', function() {
+       
+    })
+    it.skip('Adicionndo 3 produtos no carrinho', function() {
+       
+    })
+    it.skip('Validando o valor total no carrinho', function() {
+       
+    })
+   
+
+  })
