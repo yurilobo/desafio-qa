@@ -23,3 +23,6 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add('amazon', (email, password) => {
+    cy.visit('https://www.amazon.com.br')
+ })
