@@ -1,18 +1,20 @@
-describe('Realizando cadastro no site da Amazon', function() {
-    it('Acessando o site da Amazon', function() {
+describe('Realizando cadastro no site da Amazon', function () {
+    it('Acessando o site da Amazon', function () {
         cy.amazon()
-        //verificar se estou no site da amazon
+        cy.get('[href="/gp/browse.html?node=17877554011&ref_=nav_cs_sell"]')
+        .should('contains.text', 'Venda na Amazon')
     })
-    it('Indo para parte de login', function() {
+    it('Indo para parte de login', function () {
         cy.get('.nav-signin-tooltip-footer > .nav-a').click()
-        //verificar se estou no site da amazon
+          
     })
-    it('Preenchendo os campos', function() {
-        cy.get('#ap_customer_name').type("Teste da Avenue")
-        cy.get('#ap_email').type("avenue@teste.com.br")
-        cy.get('#ap_password').type("12345678")
-        cy.get('#ap_password_check').type("12345678")
-        cy.get('#continue')
+    it('Preenchendo os campos', function () {
+        cy.get('#ap_customer_name').should('be.visible').type("Teste da Avenue")
+        cy.get('#ap_email').should('be.visible').type("avenue@teste.com.br")
+        cy.get('#ap_password').should('be.visible').type("12345678")
+        cy.get('#ap_password_check').should('be.visible').type("12345678")
+        cy.get('#continue').should('be.visible')
+
     })
 
-  })
+})

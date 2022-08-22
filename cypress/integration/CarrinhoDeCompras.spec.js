@@ -1,7 +1,8 @@
 describe('Adicionando produto no Carrinho no site da Amazon', function() {
     it('Acessando o site da Amazon', function() {
         cy.amazon()
-        
+        cy.get('[href="/gp/browse.html?node=17877554011&ref_=nav_cs_sell"]')
+        .should('contains.text', 'Venda na Amazon')
         
     })
     it('Buscando por um produto e adicionando ao carrinho', function(){
@@ -28,7 +29,8 @@ describe('Adicionando produto no Carrinho no site da Amazon', function() {
   describe('Adicionando 3 produtos no Carrinho no site da Amazon', function() {
     it('Acessando o site da Amazon', function() {
         cy.amazon()
-       
+        cy.get('[href="/gp/browse.html?node=17877554011&ref_=nav_cs_sell"]')
+        .should('contains.text', 'Venda na Amazon')
     })
     it('Buscando e adicionando 3 produtos', function() {
         cy.get('#twotabsearchtextbox')
