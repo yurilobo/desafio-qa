@@ -26,5 +26,11 @@
 Cypress.Commands.add('amazon', () => {
     cy.visit('https://www.amazon.com.br')
     
-
 })
+/*Cypress.Commands.add('amazonLogado', () => {
+    cy.visit('https://www.amazon.com.br')
+    .get('#nav-signin-tooltip > .nav-action-button > .nav-action-inner').click()
+    .get('#ap_email').type("email {enter}")
+    .get('#ap_password').type("senha")
+    .get('#signInSubmit').click()
+})*/
