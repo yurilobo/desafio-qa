@@ -6,6 +6,7 @@ describe('Realizando cadastro no site da Amazon', function () {
     })
     it('Indo para parte de login', function () {
         cy.get('.nav-signin-tooltip-footer > .nav-a').click()
+        
           
     })
     it('Preenchendo os campos', function () {
