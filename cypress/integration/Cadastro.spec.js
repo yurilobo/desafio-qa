@@ -1,8 +1,7 @@
 describe('Realizando cadastro no site da Amazon', function () {
     it('Acessando o site da Amazon', function () {
         cy.amazon()
-        cy.get('[href="/gp/browse.html?node=17877554011&ref_=nav_cs_sell"]')
-        .should('contains.text', 'Venda na Amazon')
+        
     })
     it('Indo para parte de login', function () {
         cy.get('.nav-signin-tooltip-footer > .nav-a').click()
