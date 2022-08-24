@@ -1,4 +1,5 @@
-describe.only('Adicionando produto no Carrinho no site da Amazon', function() {
+
+describe('Adicionando produto no Carrinho no site da Amazon', function() {
     it('Acessando o site da Amazon', function() {
         cy.amazon()
     })
@@ -26,6 +27,8 @@ describe.only('Adicionando produto no Carrinho no site da Amazon', function() {
         cy.amazon()
         cy.get('[href="/gp/browse.html?node=17877554011&ref_=nav_cs_sell"]')
         .should('contains.text', 'Venda na Amazon')
+        
+        //cy.contains('Title', 'Amazon.com.br | Tudo pra você, de A a Z.').should('be.visible')
     })
     it('Buscando e adicionando 3 produtos', function() {
         cy.get('#twotabsearchtextbox')
@@ -41,7 +44,10 @@ describe.only('Adicionando produto no Carrinho no site da Amazon', function() {
     })
     
     it.skip('Valide o valor do pedido', function() {
-        cy.get('#sc-subtotal-amount-buybox > .a-size-medium').invoke('text').should('contains.text','215,64')
+        cy.get('.sc-buy-box-inner-box > .a-spacing-mini').then((element) => {
+            expect(element.text().replace('\n',''),replace(' ','')).to.equal('215,58')
+        })
+        //.invoke('text').should('have.text','215,58')
         
     })
    
