@@ -1,7 +1,6 @@
-describe('Adicionando produto no Carrinho no site da Amazon', function() {
+describe.only('Adicionando produto no Carrinho no site da Amazon', function() {
     it('Acessando o site da Amazon', function() {
         cy.amazon()
-        
     })
     it('Buscando por um produto e adicionando ao carrinho', function(){
         cy.get('#twotabsearchtextbox')
@@ -14,18 +13,13 @@ describe('Adicionando produto no Carrinho no site da Amazon', function() {
             .get('#sw-gtc > .a-button-inner > .a-button-text').click()
         
     })
-    
     it('Valide se o produto foi incluído no carrinho com sucesso', function() {
         cy.get('.a-color-base > .a-truncate > .a-truncate-cut').should('contains.text','Código limpo: Habilidades práticas do Agile Software')
-      
-        //.should('contains.text','R$ 71,88')
-        
+        cy.get('h1').should('contains.text', 'Carrinho de compras')
+            .get('.a-color-base > .a-truncate > .a-truncate-cut').should('contains.text', 'Código limpo: Habilidades práticas do Agile Software')
+            
     })
-    it.skip('Valide o valor do pedido', function() {
-        cy.get('#sc-subtotal-amount-buybox > .a-size-medium').invoke('text').should('contains.text','71,88')
-        
-    })
-   
+    
   })
   describe('Adicionando 3 produtos no Carrinho no site da Amazon', function() {
     it('Acessando o site da Amazon', function() {
