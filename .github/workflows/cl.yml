@@ -1,4 +1,4 @@
-name: End-to-end tests 🧪
+name: End-to-end and API tests 🧪
 on: [push]
 jobs:
   cypress-run:
