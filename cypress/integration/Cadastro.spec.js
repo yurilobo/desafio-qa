@@ -1,7 +1,6 @@
 describe('Realizando cadastro no site da Amazon', function () {
     it('Acessando o site da Amazon', function () {
         cy.amazon()
-        
     })
     
     it('Acesse a página para criar uma nova conta', function () {

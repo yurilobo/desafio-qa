@@ -25,12 +25,13 @@ describe('API tests', () => {
             console.log('Clima: ',clima)
         })     
     })
-    it('Retornar o clima no console usando latitude, longitude e a API_Keys como parametros', () => {
+    it('Retornar o clima no console usando cidade e a API_Keys como parametros', () => {
         cy.request({
             method: 'GET',
-            url: 'https://api.openweathermap.org/data/2.5/weather?q=London&lang=pt_br&&appid=6ac29ecd2763cf699f03a8e3c7704c2b'
+            url: 'https://api.openweathermap.org/data/2.5/weather?q=cape town&lang=pt_br&&appid=6ac29ecd2763cf699f03a8e3c7704c2b'
         }).then((res)=>{
             expect(res.status).to.equal(200);
+            //Clima de Cidade do Cabo
             let clima=(res.body.weather[0].description)
             console.log('Clima: ',clima)
             

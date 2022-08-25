@@ -44,10 +44,7 @@ describe('Adicionando produto no Carrinho no site da Amazon', function() {
     })
     
     it.skip('Valide o valor do pedido', function() {
-        cy.get('.sc-buy-box-inner-box > .a-spacing-mini').then((element) => {
-            expect(element.text().replace('\n',''),replace(' ','')).to.equal('215,58')
-        })
-        //.invoke('text').should('have.text','215,58')
+        cy.get('#sc-subtotal-amount-buybox > .a-size-medium').invoke('text').should('have.text','215,58')
         
     })
    
